@@ -420,7 +420,7 @@
 
         @starting-style {
           opacity: 0; 
-          translate: -50% 0;
+          translate: 50% 0;
         }
       }
     }
