@@ -11,6 +11,15 @@
 />  
   <link rel="stylesheet" href="style.css">
   <script src="main.js" defer></script>
+  <script src="mushroom-filter.js" defer></script><style>
+    @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-group(root) {
+    animation-duration: 0.6s;
+}
+  </style>
 
   <title>Mushroom guide</title>
 </head>
@@ -20,7 +29,7 @@
     <div class="wrapper" data-width="wide">
       <div class="site-header__inner">
         
-        <img src="/assets/fungi-finders.svg" alt="" class="logo">
+        <a href="/"><img src="/assets/fungi-finders.svg" alt="" class="logo"></a>
         <button aria-controls="primary-nav" aria-expanded="false">
           <span class="visually-hidden">Menu</span>
           <img src="assets/hamburger.svg" alt="">
@@ -28,8 +37,8 @@
         <nav id="primary-nav" class="primary-navigation">
           <ul role="list">
             <li><a href="/">Discover</a></li>
-            <li><a href="#">Mushroom guide</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="/mushroom-guide.html">Mushroom guide</a></li>
+            <li><a href="/mushroom-guide.html#faq">FAQ</a></li>
           </ul>
         </nav>
       </div>
@@ -69,17 +78,16 @@
 
     <!-- interactive guide -->
     <section class="mushroom-guide section">
-      <div class="wrapper">
-        <div class="flow">
+      <div class="wrapper flow">
         <h2 class="section-title">Get to know your mushrooms</h2>
         <div class="flex-group">
-          <select>
+          <select name="season" id="season" hidden>
             <option value="all">Season: all</option>
             <option value="spring">Spring</option>
             <option value="summer">Summer</option>
             <option value="autumn">Autumn</option>
           </select>
-          <select>
+          <select name="edible" id="edible" hidden>
             <option value="all">Type: All</option>
             <option value="edible">Edible</option>
             <option value="toxic">Toxic</option>
@@ -87,7 +95,7 @@
         </div>
 
         <!-- grid of mushrooms -->
-         <div class="grid-auto-fit">
+         <div class="grid-auto-fill">
           <div class="card">
             <h3 class="card__title">Chanterelle</h3>
             <ul class="tag-list" role="list" aria-label="Mushroom characteristics">
@@ -354,15 +362,16 @@
                 Verify identification – has toxic look-alikes
               </div>
           </div>
+          <div class="no-matches" hidden>No matches for these filters</div>
          </div>
         </div>
       </div>
     </section>
 
     <!-- faq -->
-    <section class="background-extra-dark section" data-padding="compact">
-      <div class="wrapper" data-width="wide">
-
+    <section id="faq" class="background-extra-dark section" data-padding="compact">
+      <div class="wrapper flow" data-width="wide">
+        <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-bento">
 
           <div class="card">
